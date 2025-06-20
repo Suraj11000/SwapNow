@@ -266,14 +266,14 @@ export default function ThankYouPage() {
                 Back to Home
               </Button>
             </Link>
-            <Button size="lg" className="w-full sm:w-auto bg-green-600 hover:bg-green-700">
+            {/* <Button size="lg" className="w-full sm:w-auto bg-green-600 hover:bg-green-700">
               <Download className="w-5 h-5 mr-2" />
               Download Meal Plan
             </Button>
             <Button variant="outline" size="lg" className="w-full sm:w-auto">
               <Calendar className="w-5 h-5 mr-2" />
               Schedule Delivery
-            </Button>
+            </Button> */}
           </div>
         </div>
       </div>

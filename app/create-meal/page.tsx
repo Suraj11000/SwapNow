@@ -203,9 +203,7 @@ export default function CreateMealPage() {
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             ) : (
-              <Button className="bg-green-600 hover:bg-green-700" disabled={!isStepValid()}>
-                Place Order
-              </Button>
+''
             )}
           </div>
         </div>

@@ -14,16 +14,26 @@ const allergies = [
   { value: "seafood", label: "Seafood Allergy" },
   { value: "nuts", label: "Nut Allergy" },
   { value: "coconut", label: "Coconut Allergy" },
+  { value: "none", label: "None of the above" },
 ]
 
 export default function Step5Allergies({ formData, updateFormData }: Props) {
   const handleAllergyChange = (allergy: string, checked: boolean) => {
     let newAllergies = [...formData.allergies]
 
-    if (checked) {
-      newAllergies.push(allergy)
+    if (allergy === "none") {
+      if (checked) {
+        newAllergies = ["none"]
+      } else {
+        newAllergies = []
+      }
     } else {
-      newAllergies = newAllergies.filter((a) => a !== allergy)
+      if (checked) {
+        newAllergies = newAllergies.filter(a => a !== "none")
+        newAllergies.push(allergy)
+      } else {
+        newAllergies = newAllergies.filter((a) => a !== allergy)
+      }
     }
 
     updateFormData({ allergies: newAllergies })
@@ -53,7 +63,7 @@ export default function Step5Allergies({ formData, updateFormData }: Props) {
             ))}
           </div>
 
-          {formData.allergies.length === 0 && (
+          {(formData.allergies.length === 0 || formData.allergies.includes("none")) && (
             <p className="text-sm text-gray-500 mt-4 text-center">
               No allergies selected - that's great! You'll have access to our full menu.
             </p>
